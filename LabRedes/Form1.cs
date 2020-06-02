@@ -124,9 +124,68 @@ namespace LabRedes
             }
         }
 
+        // Mostrar resultados con los datos obtenidos
+
+        public void cargarSubNet()
+        {
+            Double totalSubNet = 0;
+            Double cantSubNet = 0;
+            Double numSubNet = 0;
+            int subNetFrom = Convert.ToInt32(textBox_SubNet.Text);
+            for (int i = 1; i < 9; i++)
+            {
+                totalSubNet = (Math.Pow(2, i) - 2);
+                if (subNetFrom <= totalSubNet)
+                {
+                    cantSubNet = Math.Pow(2, 8 - i);
+                    numSubNet = Math.Pow(2, i);
+
+                    mostrarIDRed(cantSubNet, numSubNet);
+                    mostrarRango(numSubNet, cantSubNet);
+                    mostrarSubNet(subNetFrom);
+                    mostrarDireccionesDifusion(numSubNet, cantSubNet);
+                    break;
+                }
+            }
+        }
+
         private void button_calcular_Click(object sender, EventArgs e)
         {
-
+            if (textBox_IP1.Text=="" || textBox_IP2.Text == "" || textBox_IP3.Text == "" || textBox_IP4.Text == "" || textBox_SubNet.Text == "")
+            {
+                MessageBox.Show("Por favor, ingrese los datos necesarios", "Datos incompletos");
+            }
+            else
+            {
+                Double rangoIP = Convert.ToDouble(textBox_IP1.Text);
+                if (rangoIP >= 0 && 128 > rangoIP)
+                {
+                    textBox_Mascara.Text = "255.0.0.0";
+                    textBox_Clase.Text = "A";
+                    cargarSubNet();
+                }
+                else if (rangoIP >= 128 && 192 > rangoIP)
+                {
+                    textBox_Mascara.Text = "255.255.0.0";
+                    textBox_Clase.Text = "B";
+                    cargarSubNet();
+                }
+                else if (rangoIP >= 192 && 224 > rangoIP)
+                {
+                    textBox_Mascara.Text = "255.255.255.0";
+                    textBox_Clase.Text = "C";
+                    cargarSubNet();
+                }
+                else if (rangoIP >= 224)
+                {
+                    MessageBox.Show("Fuera rango", " Direcciones IP disponibles", MessageBoxButtons.OKCancel);
+                    textBox_IP1.Text = "";
+                    textBox_IP2.Text = "";
+                    textBox_IP3.Text = "";
+                    textBox_IP4.Text = "";
+                    textBox_SubNet.Text = "";
+                }
+            }
         }
     }
 }

@@ -41,11 +41,11 @@
             this.textBox_Clase = new System.Windows.Forms.TextBox();
             this.textBox_Mascara = new System.Windows.Forms.TextBox();
             this.grid = new System.Windows.Forms.DataGridView();
-            this.button_calcular = new System.Windows.Forms.Button();
             this.column_1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.column_4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button_calcular = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -155,19 +155,6 @@
             this.grid.TabIndex = 12;
             this.grid.TabStop = false;
             // 
-            // button_calcular
-            // 
-            this.button_calcular.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button_calcular.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_calcular.Image = global::LabRedes.Properties.Resources.play_button;
-            this.button_calcular.Location = new System.Drawing.Point(424, 342);
-            this.button_calcular.Name = "button_calcular";
-            this.button_calcular.Size = new System.Drawing.Size(40, 40);
-            this.button_calcular.TabIndex = 0;
-            this.button_calcular.TabStop = false;
-            this.button_calcular.UseVisualStyleBackColor = false;
-            this.button_calcular.Click += new System.EventHandler(this.button_calcular_Click);
-            // 
             // column_1
             // 
             this.column_1.HeaderText = "#";
@@ -191,6 +178,19 @@
             this.column_4.HeaderText = "Direcciones de difusión (Broadcast)";
             this.column_4.Name = "column_4";
             this.column_4.ReadOnly = true;
+            // 
+            // button_calcular
+            // 
+            this.button_calcular.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.button_calcular.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_calcular.Image = global::LabRedes.Properties.Resources.play_button;
+            this.button_calcular.Location = new System.Drawing.Point(424, 342);
+            this.button_calcular.Name = "button_calcular";
+            this.button_calcular.Size = new System.Drawing.Size(40, 40);
+            this.button_calcular.TabIndex = 0;
+            this.button_calcular.TabStop = false;
+            this.button_calcular.UseVisualStyleBackColor = false;
+            this.button_calcular.Click += new System.EventHandler(this.button_calcular_Click);
             // 
             // label5
             // 
@@ -246,6 +246,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Calculadora";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora con IPv4";
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
