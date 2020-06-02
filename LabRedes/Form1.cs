@@ -88,6 +88,42 @@ namespace LabRedes
 
         }
 
+        public void mostrarSubNet(double miSubNet)
+        {
+            for (int i = 0; i < miSubNet; i++)
+            {
+                grid.Rows[i + 1].DefaultCellStyle.BackColor = Color.SpringGreen;
+            }
+        }
+
+        public void mostrarDireccionesDifusion(Double numSubNet, Double catSubNet)
+        {
+            accHost1 = 0;
+            accHost2 = 0;
+            accHost3 = 0;
+            for (int i = 0; i < numSubNet; i++)
+            {
+                if (textBox_Clase.Text.Equals("A"))
+                {
+                    accHost1 = accHost1 + catSubNet;
+                    ip = textBox_IP1.Text + "." + Convert.ToString(accHost1 - 1) + "." + Convert.ToString(accHost3 + 255) + "." + Convert.ToString(accHost3 + 255);
+                }
+                else if (textBox_Clase.Text.Equals("B"))
+                {
+                    accHost2 = accHost2 + catSubNet;
+                    ip = textBox_IP1.Text + "." + textBox_IP2.Text + "." + Convert.ToString(accHost2 - 1) + "." + Convert.ToString(accHost3 + 255);
+                }
+                else if (textBox_Clase.Text.Equals("C"))
+                {
+                    accHost3 = accHost3 + catSubNet;
+                    ip = textBox_IP1.Text + "." + textBox_IP2.Text + "." + textBox_IP3.Text + "." + Convert.ToString(accHost3 - 1);
+                }
+                grid.Rows.Add();
+                grid.Rows[i].Cells[3].Value = ip;
+
+            }
+        }
+
         private void button_calcular_Click(object sender, EventArgs e)
         {
 
